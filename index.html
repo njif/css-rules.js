@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>A cross-browser javascript library for insert/remove css rules</title>
+	<link href='http://fonts.googleapis.com/css?family=Indie+Flower' rel='stylesheet' type='text/css'>
+</head>
+<body>
+
+	<section class="example">
+		<h1>Example</h1>
+		<p>
+			<img src="http://lorempixel.com/150/100/sports/1/" alt="picture">
+			Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam eos aperiam excepturi accusamus velit maiores sit rem incidunt similique facere, quas blanditiis, modi sapiente voluptates nobis nam laborum odit quibusdam nulla quam earum reiciendis! Iure veritatis atque laboriosam, dignissimos itaque, nisi quod accusantium mollitia error odio illo quasi unde, dicta!			
+		</p>
+		<div class="buttons">
+			<button id="#button-add">Add css rules</button>
+			<button id="#button-remove">Remove css rules</button>			
+		</div>
+	</section>
+
+	<script src="cssrule.js"></script>
+	<script>
+		(function() {
+			var add = document.getElementById('#button-add');
+			var remove = document.getElementById('#button-remove');
+
+			var rules = [
+				{selector: 'body', property: 'background: #222;color:white', index: -1 },				
+				{selector: 'h1', property: 'background: #e18728;color:white;margin:0;padding:10px;', index: -1 },
+				{selector: 'p', property: 'background: #1d1f21;color:white;min-height:150px;margin:0;padding:10px', index: -1 },
+				{selector: 'img', property: 'border:2px solid white;float:left;margin-right:10px', index: -1 },
+				{selector: '.buttons', property: 'padding:5px;', index: -1 },
+				{selector: 'button', property: "margin:5px;width:180px;outline:none;background-color:#be4c39;color:white;padding: 8px 20px;border:none;text-transform: uppercase;font-family: 'Indie Flower', cursive;", index: -1 },
+				{selector: '.example', property: "width:400px;background-color: #702d21;border:1px solid #fff;font-family: 'Indie Flower', cursive;", index: -1 }
+			];
+
+			var currentIndex = 0;
+
+			add.onclick = function() {
+				if (currentIndex == rules.length)
+					return;
+				var rule = rules[currentIndex];
+				rule.index = cssrules.add(rule.selector, rule.property);
+				currentIndex +=1;
+			};
+
+			remove.onclick = function() {
+				if (currentIndex == 0)
+					return;
+				var rule = rules[currentIndex - 1];
+				cssrules.remove(rule.index);
+				rule.index = -1;
+				currentIndex--;
+			};
+			
+		}());
+
+
+	</script>
+</body>
+</html>
