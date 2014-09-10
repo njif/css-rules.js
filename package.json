@@ -1,0 +1,25 @@
+{
+	"name": "css-rules.js",
+	"description": "A cross-browser javascript library for insert/remove css rules",
+	"keywords": [
+		"css",
+		"rules",
+		"javascript",
+		"util",
+		"browser"
+	],
+	"author": {
+		"name": "Anton Seroshtan",
+		"email": "anton.seroshtan@gmail.com"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git://github.com/njif/css-rules.js.git"
+	},
+	"main": "css-rules.js",
+	"version": "0.0.2",
+	"files": [
+		"css-rules.js",
+		"css-rules.min.js"
+	]
+}
