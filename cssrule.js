@@ -33,16 +33,16 @@
 			if (!_pivate.styleSheet)
 				_pivate.styleSheet = _pivate.createStyleSheet();
 
-			ns.cssrules.add = _pivate.styleSheet.addRule ? _pivate.addRule : _pivate.insertRule;
-			ns.cssrules.add(selector, property);
+			ns.cssrules.add = _pivate.styleSheet.insertRule ? _pivate.insertRule : _pivate.addRule;
+			return ns.cssrules.add(selector, property);
 		},
 
 		remove: function(index) {
 			if (!_pivate.styleSheet)
 				_pivate.styleSheet = _pivate.createStyleSheet();
 
-			ns.cssrules.remove = _pivate.styleSheet.removeRule ? _pivate.removeRule : _pivate.deleteRule;
-			ns.cssrules.remove(index);
+			ns.cssrules.remove = _pivate.styleSheet.deleteRule ? _pivate.deleteRule : _pivate.removeRule;
+			return ns.cssrules.remove(index);
 		}		
 	},
 
